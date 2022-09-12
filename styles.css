@@ -1,37 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+}
 
-<!DOCTYPE html>
-<html lang="en">
+.wrapper {
+  position: relative;
+  height: 80vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: repeat(3, auto);
+}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Document</title>
-</head>
+.cell {
+  width: 100px;
+  height: 100px;
+  border: solid 3px rgb(212, 40, 40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
-<body>
-  <div class="container">
-    <div id="player1">Player1</div>
-    <div id="player2">Player2</div>
-    <div id="btnDiv" >
-      <button id="resetButton" onClick="restart()">Restart</button>
-    </div>
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
 
-    <div class="wrapper">
-      <div id="1" class="cell"></div>
-      <div id="2" class="cell"></div>
-      <div id="3" class="cell"></div>
-      <div id="4" class="cell"></div>
-      <div id="5" class="cell"></div>
-      <div id="6" class="cell"></div>
-      <div id="7" class="cell"></div>
-      <div id="8" class="cell"></div>
-      <div id="9" class="cell"></div>
-    </div>
-  </div>
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
 
-  <script src="script.js"></script>
-</body>
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
 
-</html>
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+.x,
+.o {
+  color: aqua;
+  font-size: 90px;
+  cursor: not-allowed;
+}
+
+.x::after {
+  content: "X";
+}
+
+.o::after {
+  content: "O";
+}
+
+#player1,
+#player2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: blueviolet;
+}
+
+#btnDiv {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+#resetButton {
+    cursor: pointer;
+  position: absolute;
+  height: 50px;
+  width: 120px;
+  font-size: 2rem;
+  background-color:rgb(32, 180, 170);
+  color: rgb(7, 7, 7);
+  border-radius: 45px;
+}
+
+#resetButton:hover{
+    color:brown;
+}
